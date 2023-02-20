@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amssymb,amsfonts,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref,xcolor}
+\hypersetup{
+    colorlinks,
+    urlcolor={black}  %black!50!blue
+}
+\def\inputGnumericTable{}
+\usepackage[latin1]{inputenc}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+%\newcommand{\varsol}{\noindent \textbf{Aliter: }}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+%\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+\setlist[enumerate]{font=\small\bfseries}
+\renewcommand\thefootnote{\textcolor{black}{\arabic{footnote}}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\begin{document}
+
+\title{PROBABILITY}
+\author{\Large B DHEERAJ KUMAR - FWC22008}
+\date{}
+
+\maketitle
+\begin{enumerate}[label=13.\arabic{enumi}.\arabic{enumii}]%,ref=\thesection.\theenumi.\theenumi]
+\numberwithin{equation}{enumi}
+\numberwithin{table}{enumi}
+\setcounter{enumi}{0}
+\setcounter{enumii}{6}
+
+\item \footnote{Read question numbers as (CHAPTER NUMBER).(EXERCISE NUMBER).(QUESTION NUMBER)}
+\textbf {A coin is tossed three times where \\
+(i) E:head on third toss, F:head on first two tosses\\
+(ii)E:atleast two heads,F:atmost two heads\\
+(iii)E:atmost two tails,F:atleast one tail\\
+determine P($E \mid F$) }\\[1ex]
+\solution:
+In an experiment of tossing a coin 3 times, random variable $X \in \cbrak{0,1,2,3}$ follows binomial distribution.\\
+By using the binomial distribution formula :\\
+Pr(X=k)=$^{n}C_k \times p^k \times (1-p)^{n-k}$\\
+\vspace{5mm}
+\begin{table}[h]
+\centering
+\input{tables/table5}
+\caption{Random variable $X$}
+\label{tab:5} 
+\end{table}
+\begin{table}[h]
+\centering
+	\input{tables/table1}
+\caption{variable and Description}
+\label{tab:2} 
+\end{table}
+%\begin{enumerate}
+\item[i] E:head on third toss, F:head on first two tosses
+
+By using product rule,\\
+\begin{align}
+Pr(F)=\frac{1}{2}\times\frac{1}{2}\\
+Pr(F)=0.25\\
+Pr(EF)=\frac{1}{2}\times\frac{1}{2}\times\frac{1}{2}\\
+Pr(EF)=0.125\\
+Pr(E \mid F)=\frac{Pr(EF)}{Pr(F)}\\
+Pr(E \mid F)=0.5
+\end{align}
+\item[ii] E:atleast two heads,F:atmost two heads\\
+\begin{align}
+Pr(F)=Pr(X\leq2)\\
+Pr(F)=Pr(X=0)+Pr(X=1)+Pr(X=2)\\
+Pr(F)=^{3}C_0 (\frac{1}{2})^{3}+ ^{3}C_1 (\frac{1}{2})^{3}+ ^{3}C_2 (\frac{1}{2})^{3}\\
+Pr(F)=0.875\\
+Pr(EF)=Pr(X=2)\\
+Pr(EF)= ^{3}C_2 (\frac{1}{2})^{3}\\
+Pr(EF)=0.375\\
+Pr(E \mid F)=\frac{Pr(EF)}{Pr(F)}\\
+Pr(E \mid F)=0.428
+\end{align}
+\item[iii]E:atmost two tails,F:atleast one tail\\
+\begin{align}
+Pr(F)=Pr(X\geq1)\\
+Pr(F)=1-Pr(X=0)\\
+Pr(F)=0.875\\
+Pr(EF)=Pr(X=1)+Pr(X=2)\\
+Pr(EF)=^{3}C_1 (\frac{1}{2})^{3}+^{3}C_2 (\frac{1}{2})^{3}\\
+Pr(EF)=0.75\\
+Pr(E \mid F)=\frac{Pr(EF)}{Pr(F)}\\
+Pr(E \mid F)=0.857
+\end{align}
+\end{enumerate}
+\end{document}
